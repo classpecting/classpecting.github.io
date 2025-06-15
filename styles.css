@@ -1,10 +1,115 @@
-body {
-	font-family: 'Arial';
+:root {
+	--bg-color: #1a1f23;
+	--main-text-color: #f8fcff;
+	--link-color: #ecf9ff;
+	--link-hover-color: #a4b0b6;
 }
-div {
-	padding: 1em;
-	text-align: center;
+header {
+	padding: 2em;
+}
+body {
+	/* text */
+	font-family: 'Arial';
+
+	/* color */
+	background: var(--bg-color);
+	color: var(--main-text-color);
 }
 h1 {
-	font-size: 50pt;
+	font-size: 65pt;
+	text-align: left;
+}
+p {
+	font-size: 16pt;
+	line-height: 2;
+}
+a:link {
+	color: var(--link-color);
+	transition: color .2s;
+	text-decoration: none;
+}
+a:visited {
+	color: var(--link-color);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--link-hover-color);
+	transition: color .2s;
+	text-decoration: none;
+}
+#nav-column {
+	/*size and positioning*/
+	position: fixed;
+	display: inline-grid;
+	grid-auto-flow: column;
+	grid-column-gap: .5em;
+	padding: 1em 1.5em;
+
+	/* text */
+	font-size: 15pt;
+
+	/* style */
+}
+.content {
+	/*size and positioning*/
+	display: grid;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	-ms-transform: translateY(50%);
+    transform: translateY(50%);
+
+	/*text*/
+	text-align: left;
+
+	/*style*/
+}
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 25em;
+  height: 100%;
+  overflow: auto;
+  font-size: 15pt;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: var(--link-color);
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #343e46;
+  color: var(--link-color);
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  color: var(--link-hover-color);
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
 }
