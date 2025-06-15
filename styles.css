@@ -2,5 +2,9 @@ body {
 	font-family: 'Arial';
 }
 div {
+	padding: 1em;
 	text-align: center;
+}
+h1 {
+	font-size: 50pt;
 }
